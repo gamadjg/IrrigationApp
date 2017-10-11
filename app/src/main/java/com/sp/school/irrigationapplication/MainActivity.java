@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        
         //Writing
         Save.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                if(EDT.getText().toString().isEmpty()){
                    Toast.makeText(getApplicationContext(), "Please Write", Toast.LENGTH_SHORT).show();
                }else{
+                   //this is a test
                    // This changes the Value of the Child Within Temp without changing the nameValue
                    DBRef.setValue(EDT.getText().toString());
                    //This changes the value of the child within TEMP and the NameValue
