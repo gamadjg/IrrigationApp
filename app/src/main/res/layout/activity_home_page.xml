@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sp.school.irrigationapplication.HomePage">
+
+    <Button
+        android:id="@+id/MAddDataBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="123dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="168dp"
+        android:text="Add Data"
+        tools:text="Add Data" />
+
+    <Button
+        android:id="@+id/NodeSelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="Node Select"
+        tools:text="Node Select"
+        android:layout_below="@+id/MAddDataBtn"
+        android:layout_alignLeft="@+id/MAddDataBtn"
+        android:layout_alignStart="@+id/MAddDataBtn" />
+
+    <Button
+        android:id="@+id/CalendarBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/MAddDataBtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/MAddDataBtn"
+        android:layout_marginTop="75dp"
+        android:text="Calendar"
+        tools:text="Calendar" />
+</android.widget.RelativeLayout>

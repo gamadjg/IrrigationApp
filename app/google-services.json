@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "763687515821",
+    "firebase_url": "https://irrigation-4e09c.firebaseio.com",
+    "project_id": "irrigation-4e09c",
+    "storage_bucket": "irrigation-4e09c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763687515821:android:3b3ad72067af52be",
+        "android_client_info": {
+          "package_name": "com.sp.school.irrigationapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763687515821-8pehdjocs8pitq24g3rt8m1dek4kocho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBXK8IVD85nkCK2Udw18yg-UB_vEaryVY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
