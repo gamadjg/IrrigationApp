@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">IrrigationApplication</string>
+    <string name="nodeList">node1</string>
+
+    <string-array name="nodeEntries">
+        <item>Node 1</item>
+        <item>Node 2</item>
+        <item>Node 3</item>
+        <item>Node 4</item>
+        <item>Node 5</item>
+        <item>Node 6</item>
+    </string-array>
+
 </resources>

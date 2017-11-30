@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "763687515821-krhdagvrl0q1j1cvvm7q1g8g0b4pupk5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sp.school.irrigationapplication",
+            "certificate_hash": "3491f724104d599d65360120f19c258698b8d1d4"
+          }
+        },
+        {
           "client_id": "763687515821-8pehdjocs8pitq24g3rt8m1dek4kocho.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763687515821-8pehdjocs8pitq24g3rt8m1dek4kocho.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "763687515821-hvmruk01a40psuc9rrpppml71861429b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sp.school.irrigationapp"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2
