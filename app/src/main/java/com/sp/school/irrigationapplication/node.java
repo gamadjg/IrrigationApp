@@ -69,7 +69,7 @@ public class node extends AppCompatActivity {
 
         GraphView graph = (GraphView) findViewById(R.id.nGraph);
         series = new LineGraphSeries<DataPoint>();
-        //series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
+        series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
 
 
         //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", new LineGraphSeries(Color.GREEN, 3), new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
