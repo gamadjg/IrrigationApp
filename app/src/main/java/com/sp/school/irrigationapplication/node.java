@@ -1,6 +1,7 @@
 package com.sp.school.irrigationapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,6 +38,10 @@ public class node extends AppCompatActivity {
     Spinner sp1;
     Button submitBtn;
     LineGraphSeries<DataPoint> series;
+    LineGraphSeries<DataPoint> series1;
+    LineGraphSeries sTempSeries;
+    LineGraphSeries sMoistSeries;
+
     FirebaseDatabase FDB;
     DatabaseReference DBRef;
     TextView TV;
@@ -55,20 +60,39 @@ public class node extends AppCompatActivity {
         addListenerOnButton();
         addListenerOnSpinnerItemSelection();
         FDB = FirebaseDatabase.getInstance();// Database instance
-        DBRef = FDB.getReference("lora"); // reference to instance of the database
+        DBRef = FDB.getReference("lora/node3"); // reference to instance of the database
         TV = (TextView) findViewById(R.id.childView);
         graph = (GraphView) findViewById(R.id.nGraph);
+        series = new LineGraphSeries<DataPoint>();
+
+        //sTempSeries = new LineGraphSeries("TEMP", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) );
+
+        GraphView graph = (GraphView) findViewById(R.id.nGraph);
+        series = new LineGraphSeries<DataPoint>();
+        //series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
+
+
+        //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", new LineGraphSeries(Color.GREEN, 3), new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
+        //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
+
 
         DBRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot dbdata : dataSnapshot.getChildren()){
-                    //graphDates.add(dbdata.child("Date").getValue());
-                    //graphValues.add(dbdata.child("Value").getValue());
-                    //TV.append(graphValues.get(i).toString() + "\n");
-                    TV.append(dbdata.child("soil_temp").getValue().toString());
+                    //Pulls the value 'date' from node (currently just node3) (used for x-axis)
+                    //graphDates.add(dbdata.child("date").getValue());
+
+                    //Pulls value 'soil_temp' from node (currently just node3)
+                    //graphValues.add(dbdata.child("soil_temp").getValue());
+
+                    // append node values to different lines on the graph
 
                 }
+                //TV.append(graphValues.toString() +"\n");
+
+                //OrganizeData(graphDates);
+
             }
 
             @Override
@@ -77,14 +101,6 @@ public class node extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-        //---------------------------------------------------------------------------
-        final double y,x;
-        x = -5.0;
 
         /*
         GraphView graph = (GraphView) findViewById(R.id.nGraph);
@@ -126,6 +142,14 @@ public class node extends AppCompatActivity {
         */
     }
 
+    // R
+    /*
+    private void OrganizeData(ArrayList graphDates){
+        for(int i = 0; i< graphDates.size(); i++){
+            graphDates.indexOf(i)
+        }
+    }
+    */
 
     public void addListenerOnSpinnerItemSelection() {
         sp1 = (Spinner) findViewById(R.id.spinner1);
