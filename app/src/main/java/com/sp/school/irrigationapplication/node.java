@@ -47,8 +47,8 @@ public class node extends AppCompatActivity {
     TextView TV;
     List<String> graphItems;
     GraphView graph;
-    ArrayList graphValues = new ArrayList();
-    ArrayList graphDates = new ArrayList();
+    ArrayList <Double> graphValues = new ArrayList<>();
+    ArrayList <String> graphDates = new ArrayList();
     int i = 0;
     String keys, anotherString;
 
@@ -67,10 +67,11 @@ public class node extends AppCompatActivity {
 
         //sTempSeries = new LineGraphSeries("TEMP", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) );
 
-        GraphView graph = (GraphView) findViewById(R.id.nGraph);
-        series = new LineGraphSeries<DataPoint>();
-        series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
+        //GraphView graph = (GraphView) findViewById(R.id.nGraph);
+        //series = new LineGraphSeries<DataPoint>();
 
+        //Second Line on graph
+        //series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
 
         //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", new LineGraphSeries(Color.GREEN, 3), new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
         //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
@@ -79,20 +80,27 @@ public class node extends AppCompatActivity {
         DBRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot dbdata : dataSnapshot.getChildren()){
+
+                for (DataSnapshot dbdata : dataSnapshot.getChildren()) {
                     //Pulls the value 'date' from node (currently just node3) (used for x-axis)
                     //graphDates.add(dbdata.child("date").getValue());
 
                     //Pulls value 'soil_temp' from node (currently just node3)
-                    //graphValues.add(dbdata.child("soil_temp").getValue());
-
+                    //Double x = (Double)dbdata.child("soil_temp").getValue();
+                    graphDates.add(dbdata.child("soil_temp").getValue().toString());
                     // append node values to different lines on the graph
-
+                    //series.appendData(new DataPoint(5,.5),true, 500);
                 }
+
+                double[] dubValList = new double[graphDates.size()];
+                for(int i=0;i<graphDates.size();i++){
+                    dubValList[i] = Double.parseDouble(graphDates.get(i));
+                }
+
+                //series.appendData(new DataPoint(.5,.5), true, 500);
                 //TV.append(graphValues.toString() +"\n");
-
+                //graph.addSeries(series);
                 //OrganizeData(graphDates);
-
             }
 
             @Override
@@ -101,17 +109,40 @@ public class node extends AppCompatActivity {
             }
         });
 
+        //series.appendData(new DataPoint(.5,.5), true, 500);
+
+        //graph.addSeries(series);
+
+
+        //GraphView graph = (GraphView) findViewById(R.id.nGraph);
+        //series = new LineGraphSeries<DataPoint>(new DataPoint[]);
+        /*
+        double x = 0;
+        double y = 0;
+        series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                new DataPoint(0,0)
+        });
+
+        for(int i=0; i<6; i++){
+            x = x + 2;
+            y = y + 1;
+/*
+            series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                    new DataPoint(x,y)
+            });
+*/
+            //series.appendData(new DataPoint(x,y), false, 7);
+
 
         /*
-        GraphView graph = (GraphView) findViewById(R.id.nGraph);
-        series = new LineGraphSeries<DataPoint>();
-        for(int i=0; i<500; i++){
-            x = x + 0.1;
-            y = 0.5;
-            series.appendData(new DataPoint(x,y), true, 500);
-        }
-        graph.addSeries(series);
+        series = new LineGraphSeries<DataPoint>(new DataPoint[]{
+                new DataPoint(0,1),
+                new DataPoint(1,5),
+                new DataPoint(2,3)
+        });
         */
+        //graph.addSeries(series);
+
         //GraphView graph = (GraphView) findViewById(R.id.nGraph);
         //series = new LineGraphSeries<DataPoint>();
 
