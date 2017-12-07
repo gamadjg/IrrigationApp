@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="School" parent="android:Theme.DeviceDefault">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:colorBackground">@android:color/background_light</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+    </style>
+</resources>

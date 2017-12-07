@@ -93,6 +93,9 @@ public class node extends AppCompatActivity {
 
                 for(int i=0; i<dubTimeList.length;i++){
                     //series = new LineGraphSeries<DataPoint>(new DataPoint[]{new DataPoint(dubTimeList[i],dubValList[i])});
+    /*
+      If time is below 1 hour, the graph messes up ex: 00:59
+    */
                     series.appendData(new DataPoint(dubTimeList[i],dubValList[i]), false,dubTimeList.length );
                 }
 
@@ -100,7 +103,7 @@ public class node extends AppCompatActivity {
                 graph.addSeries(series);
                 //OrganizeData(graphDates);
 
-                graph.getViewport().setMaxX(dubTimeList.length);
+                graph.getViewport().setMaxX(50.0);
                 graph.getViewport().setMinX(1.0);
                 graph.getViewport().setMaxY(30.0);
                 graph.getViewport().setMinY(1.0);
