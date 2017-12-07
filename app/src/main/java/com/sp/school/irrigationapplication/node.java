@@ -47,10 +47,11 @@ public class node extends AppCompatActivity {
     TextView TV;
     List<String> graphItems;
     GraphView graph;
-    ArrayList <Double> graphValues = new ArrayList<>();
-    ArrayList <String> graphDates = new ArrayList();
+    ArrayList <String> graphValues = new ArrayList<>();
+    ArrayList <String> graphTimes = new ArrayList();
     int i = 0;
     String keys, anotherString;
+    String sval;
 
 
     @Override
@@ -65,41 +66,41 @@ public class node extends AppCompatActivity {
         graph = (GraphView) findViewById(R.id.nGraph);
         series = new LineGraphSeries<DataPoint>();
 
-        //sTempSeries = new LineGraphSeries("TEMP", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) );
-
-        //GraphView graph = (GraphView) findViewById(R.id.nGraph);
-        //series = new LineGraphSeries<DataPoint>();
-
-        //Second Line on graph
-        //series1 = new LineGraphSeries<DataPoint>("Temp", Color.GREEN);
-
-        //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", new LineGraphSeries(Color.GREEN, 3), new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
-        //LineGraphSeries line1Series = new LineGraphSeries("LINE ONE", Color.GREEN, 3, new GraphViewData[] { new GraphViewData(0, 0) }); // put an complete array
-
-
         DBRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                //Get Values, put them in an Arraylist
                 for (DataSnapshot dbdata : dataSnapshot.getChildren()) {
                     //Pulls the value 'date' from node (currently just node3) (used for x-axis)
-                    //graphDates.add(dbdata.child("date").getValue());
+                    graphTimes.add(dbdata.child("time").getValue().toString());
+                    graphValues.add(dbdata.child("soil_temp").getValue().toString());
+                }
+                //Create Arrays equal to size of the arraylist values pulled
+                double[] dubValList = new double[graphValues.size()];
+                double[] dubTimeList = new double[graphTimes.size()];
 
-                    //Pulls value 'soil_temp' from node (currently just node3)
-                    //Double x = (Double)dbdata.child("soil_temp").getValue();
-                    graphDates.add(dbdata.child("soil_temp").getValue().toString());
-                    // append node values to different lines on the graph
-                    //series.appendData(new DataPoint(5,.5),true, 500);
+                // Move graphValues list to dubValList
+                for(int i=0;i<graphValues.size();i++){
+                    dubValList[i] = Double.parseDouble(graphValues.get(i));
                 }
 
-                double[] dubValList = new double[graphDates.size()];
-                for(int i=0;i<graphDates.size();i++){
-                    dubValList[i] = Double.parseDouble(graphDates.get(i));
+                // Move graphTimes into dubTimeList
+                for(int i=0;i<graphTimes.size();i++){
+                    dubTimeList[i] = Double.parseDouble(graphTimes.get(i).replace(':', '.'));
+                    //TV.append(dubDateList[i]);
                 }
+
+                for(int i=0; i<dubTimeList.length;i++){
+
+                    series.appendData(new DataPoint(dubTimeList[i],dubValList[i]), true, dubTimeList.length);
+                }
+
+                //String f = Double.toString(dubValList[1]);
+                //String f = graphDates.get(1);
+                //TV.append(dubDateList[1]);
 
                 //series.appendData(new DataPoint(.5,.5), true, 500);
-                //TV.append(graphValues.toString() +"\n");
-                //graph.addSeries(series);
+                graph.addSeries(series);
                 //OrganizeData(graphDates);
             }
 
