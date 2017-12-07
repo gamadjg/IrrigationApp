@@ -89,19 +89,21 @@ public class node extends AppCompatActivity {
                     dubTimeList[i] = Double.parseDouble(graphTimes.get(i).replace(':', '.'));
                     //TV.append(dubDateList[i]);
                 }
+                //series = new LineGraphSeries<DataPoint>(new DataPoint[]{new DataPoint(0,0)});
 
                 for(int i=0; i<dubTimeList.length;i++){
-
-                    series.appendData(new DataPoint(dubTimeList[i],dubValList[i]), true, dubTimeList.length);
+                    //series = new LineGraphSeries<DataPoint>(new DataPoint[]{new DataPoint(dubTimeList[i],dubValList[i])});
+                    series.appendData(new DataPoint(dubTimeList[i],dubValList[i]), false,dubTimeList.length );
                 }
-
-                //String f = Double.toString(dubValList[1]);
-                //String f = graphDates.get(1);
-                //TV.append(dubDateList[1]);
 
                 //series.appendData(new DataPoint(.5,.5), true, 500);
                 graph.addSeries(series);
                 //OrganizeData(graphDates);
+
+                graph.getViewport().setMaxX(dubTimeList.length);
+                graph.getViewport().setMinX(1.0);
+                graph.getViewport().setMaxY(30.0);
+                graph.getViewport().setMinY(1.0);
             }
 
             @Override
