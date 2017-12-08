@@ -35,7 +35,7 @@ import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-public class node extends AppCompatActivity {
+public class node2 extends AppCompatActivity {
     Spinner sp1;
     Button submitBtn;
     LineGraphSeries<DataPoint> series;
@@ -61,7 +61,7 @@ public class node extends AppCompatActivity {
         addListenerOnButton();
         addListenerOnSpinnerItemSelection();
         FDB = FirebaseDatabase.getInstance();// Database instance
-        DBRef = FDB.getReference("lora/node3"); // reference to instance of the database
+        DBRef = FDB.getReference("lora/node2"); // reference to instance of the database
         TV = (TextView) findViewById(R.id.childView);
         graph = (GraphView) findViewById(R.id.nGraph);
         series = new LineGraphSeries<DataPoint>();
@@ -140,19 +140,19 @@ public class node extends AppCompatActivity {
         submitBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(node.this,
+                Toast.makeText(node2.this,
                         "Node Selected : "+ String.valueOf(sp1.getSelectedItem()),
                         Toast.LENGTH_SHORT).show();
+
                 if(Integer.parseInt(String.valueOf(sp1.getSelectedItemId())) == 0){
-                    Intent i=new Intent(node.this,node.class);
+                    Intent i=new Intent(node2.this,node.class);
                     startActivity(i);
                 }
                 if(Integer.parseInt(String.valueOf(sp1.getSelectedItemId())) == 1){
-                    Intent i=new Intent(node.this,node2.class);
+                    Intent i=new Intent(node2.this,node2.class);
                     startActivity(i);
                 }
             }
-            //startActivity(new Intent(HomePage.this, node2.class));
         });
     }
 }

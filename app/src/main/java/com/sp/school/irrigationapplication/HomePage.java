@@ -22,6 +22,7 @@ public class HomePage extends AppCompatActivity {
 
     Button AddDataBtn;
     Button NodePageBtn;
+    Button Node2PageBtn;
     Button CalendarPageBtn;
 
     @Override
@@ -43,6 +44,13 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 startActivity(new Intent(HomePage.this, node.class));
+            }
+        });
+        Node2PageBtn = (Button)findViewById(R.id.Node2SelBtn);
+        Node2PageBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(HomePage.this, node2.class));
             }
         });
         CalendarPageBtn = (Button)findViewById(R.id.CalendarBtn);

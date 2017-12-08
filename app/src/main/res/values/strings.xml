@@ -3,12 +3,14 @@
     <string name="nodeList">node1</string>
 
     <string-array name="nodeEntries">
-        <item>Node 1</item>
-        <item>Node 2</item>
-        <item>Node 3</item>
-        <item>Node 4</item>
-        <item>Node 5</item>
-        <item>Node 6</item>
+        <item>node 1</item>
+        <item>node 2</item>
+        <!--
+            <item>3</item>
+            <item>4</item>
+            <item>5</item>
+            <item>6</item>
+        -->
     </string-array>
 
 </resources>

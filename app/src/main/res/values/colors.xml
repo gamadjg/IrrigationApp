@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="LighterGreen">#09ad09</color>
     <color name="SacStateGold">#c4b581</color>
+    <color name="plainWhite">#ffffff</color>
 </resources>

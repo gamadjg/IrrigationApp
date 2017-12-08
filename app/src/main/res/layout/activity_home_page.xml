@@ -23,11 +23,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
-        android:text="Node Select"
-        tools:text="Node Select"
+        android:text="Node 1"
+        tools:text="Node 1"
         android:layout_below="@+id/MAddDataBtn"
         android:layout_alignLeft="@+id/MAddDataBtn"
         android:layout_alignStart="@+id/MAddDataBtn" />
+
+    <Button
+        android:id="@+id/Node2SelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="Node 2"
+        tools:text="Node 2"
+        android:layout_below="@+id/NodeSelBtn"
+        android:layout_alignLeft="@+id/NodeSelBtn"
+        android:layout_alignStart="@+id/NodeSelBtn" />
 
     <Button
         android:id="@+id/CalendarBtn"

@@ -72,21 +72,17 @@ public class MainActivity extends AppCompatActivity {
                }
            }
         });
-
-
     }
-
-
 
     //creates 2 children under Temp, named Date & Value. clears all other values though.
     private void createPost(String DT, String DataT) {
         //Create hashmap with 2 inputs, and assign to the map 'postValues'
         Map<String, Object> postValues = new HashMap<String, Object>();
         postValues.put("Date", DT);
-        postValues.put("Value", DataT);
+        postValues.put("soil_temp", DataT);
 
         //Reference Temp within the DB, pushing the mapped child values. WORKS
-        DBRef.child("Temp").push().updateChildren(postValues);
+        DBRef.child("Manual").push().updateChildren(postValues);
     }
 
 

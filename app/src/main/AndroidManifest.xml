@@ -22,7 +22,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".node" />
         <activity android:name=".CalendarPage" />
-
+        <activity android:name=".node2"></activity>
     </application>
 
 </manifest>
